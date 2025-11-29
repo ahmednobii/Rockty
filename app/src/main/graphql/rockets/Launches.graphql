@@ -1,0 +1,33 @@
+query Launches($after: String, $pageSize: Int!) {
+    launches(pageSize: $pageSize, after: $after) {
+        cursor
+        hasMore
+        launches {
+            id
+            site
+            rocket {
+                name
+                type
+            }
+            mission {
+                name
+                missionPatch
+            }
+        }
+    }
+}
+
+query LaunchDetails($id: ID!) {
+    launch(id: $id) {
+        id
+        site
+        rocket {
+            name
+            type
+        }
+        mission {
+            name
+            missionPatch
+        }
+    }
+}
